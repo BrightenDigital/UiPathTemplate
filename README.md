@@ -1,6 +1,8 @@
 # UIPATH TEMPLATE
 
-1. Preencher Excel Config com vars locais, Assets, Credential e Queues. O robot ira popular a informação toda para dentro de um dicionário.
+0. Mudar nome do projeto no ficheiro project.json (primeira linha)
+
+1. Preencher Excel Config (dentro da pasta Data) com vars locais, Assets, Credential e Queues. O robot ira popular a informação toda para dentro de um dicionário.
 
 2. Obrigatorio Asset de Maquina definido como "empty". Este asset é usado para a possibilidade de existir mais que uma maquina a correr o processo de forma autonoma. A primeira maquina a correr o processo, altera o valor do asset e assim as outras percebem que são maquinas aux. No fim a maquina principal volta a por o asset a "empty"
 
