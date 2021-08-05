@@ -77,6 +77,7 @@
       <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
       <AssemblyReference>UiPath.Word</AssemblyReference>
       <AssemblyReference>Microsoft.Extensions.DependencyModel</AssemblyReference>
+      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
   <StateMachine InitialState="{x:Reference __ReferenceID3}" sap2010:Annotation.AnnotationText="-- ReFrameWork - Robotic Enterprise Framework --" DisplayName="General Business Process" sap:VirtualizedContainerService.HintSize="774,682" sap2010:WorkflowViewState.IdRef="StateMachine_1">
@@ -90,7 +91,7 @@
         <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <State x:Name="__ReferenceID0" sap2010:Annotation.AnnotationText="Get next transaction input data" DisplayName="Get Transaction Data" sap:VirtualizedContainerService.HintSize="965,1492" sap2010:WorkflowViewState.IdRef="State_4">
+    <State x:Name="__ReferenceID0" sap2010:Annotation.AnnotationText="Get next transaction input data" DisplayName="Get Transaction Data" sap:VirtualizedContainerService.HintSize="264,100" sap2010:WorkflowViewState.IdRef="State_4">
       <State.Entry>
         <Sequence sap2010:Annotation.AnnotationText="Data retrieval mechanism. The TransactionNumber variable holds the current transaction number. Incrementing this number means getting the next transaction. For a robot retry, the number is not increased, in case of application exception, until the max retry number.&#xA;TransactionItem type needs to be changed accordingly." DisplayName="Retrieve Data" sap:VirtualizedContainerService.HintSize="919,1074" sap2010:WorkflowViewState.IdRef="Sequence_1">
           <Sequence.Variables>
@@ -311,12 +312,12 @@
                     </Catch>
                   </TryCatch.Catches>
                   <TryCatch.Finally>
-                    <TryCatch DisplayName="Set the Transaction Status and go to next Transaction" sap:VirtualizedContainerService.HintSize="436.8,291.2" sap2010:WorkflowViewState.IdRef="TryCatch_8">
+                    <TryCatch DisplayName="Set the Transaction Status and go to next Transaction" sap:VirtualizedContainerService.HintSize="438,513" sap2010:WorkflowViewState.IdRef="TryCatch_8">
                       <TryCatch.Try>
-                        <ui:RetryScope DisplayName="SetTransactionStatus " sap:VirtualizedContainerService.HintSize="375.2,289.6" sap2010:WorkflowViewState.IdRef="RetryScope_2" NumberOfRetries="10" RetryInterval="00:05:00">
+                        <ui:RetryScope DisplayName="SetTransactionStatus " sap:VirtualizedContainerService.HintSize="376,286" sap2010:WorkflowViewState.IdRef="RetryScope_2" NumberOfRetries="10" RetryInterval="00:05:00">
                           <ui:RetryScope.ActivityBody>
                             <ActivityAction>
-                              <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke SetTransactionStatus workflow" sap:VirtualizedContainerService.HintSize="333.6,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_47" LogEntry="No" LogExit="No" UnSafe="False" WorkflowFileName="Framework\SetTransactionStatus.xaml">
+                              <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke SetTransactionStatus workflow" sap:VirtualizedContainerService.HintSize="334,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_47" LogEntry="No" LogExit="No" UnSafe="False" WorkflowFileName="Framework\SetTransactionStatus.xaml">
                                 <ui:InvokeWorkflowFile.Arguments>
                                   <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">[Config]</InArgument>
                                   <InArgument x:TypeArguments="s:Exception" x:Key="in_SystemError">[SystemError]</InArgument>
@@ -344,7 +345,7 @@
                         </ui:RetryScope>
                       </TryCatch.Try>
                       <TryCatch.Catches>
-                        <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="403.2,22.4" sap2010:WorkflowViewState.IdRef="Catch`1_11">
+                        <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="404,21" sap2010:WorkflowViewState.IdRef="Catch`1_11">
                           <sap:WorkflowViewStateService.ViewState>
                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
                               <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -387,7 +388,7 @@
                     <mva:VisualBasicValue x:TypeArguments="x:Boolean" ExpressionText="SystemError IsNot Nothing" sap2010:WorkflowViewState.IdRef="VisualBasicValue`1_1" />
                   </Transition.Condition>
                   <Transition.To>
-                    <State x:Name="__ReferenceID3" sap2010:Annotation.AnnotationText="Read Config, Init Applications, &#xD;&#xA;Load queue" DisplayName="Init" sap:VirtualizedContainerService.HintSize="240,103" sap2010:WorkflowViewState.IdRef="State_2">
+                    <State x:Name="__ReferenceID3" sap2010:Annotation.AnnotationText="Read Config, Init Applications, &#xA;Load queue" DisplayName="Init" sap:VirtualizedContainerService.HintSize="240,103" sap2010:WorkflowViewState.IdRef="State_2">
                       <State.Entry>
                         <TryCatch DisplayName="Catch intialization exceptions" sap:VirtualizedContainerService.HintSize="799,2184" sap2010:WorkflowViewState.IdRef="TryCatch_2">
                           <sap:WorkflowViewStateService.ViewState>
@@ -598,9 +599,9 @@
                             </scg:Dictionary>
                           </sap:WorkflowViewStateService.ViewState>
                           <Transition.To>
-                            <State x:Name="__ReferenceID1" sap2010:Annotation.AnnotationText="Process stops here" DisplayName="End Process" sap:VirtualizedContainerService.HintSize="144,100" sap2010:WorkflowViewState.IdRef="State_1" IsFinal="True">
+                            <State x:Name="__ReferenceID1" sap2010:Annotation.AnnotationText="Process stops here" DisplayName="End Process" sap:VirtualizedContainerService.HintSize="484,738" sap2010:WorkflowViewState.IdRef="State_1" IsFinal="True">
                               <State.Entry>
-                                <TryCatch sap:VirtualizedContainerService.HintSize="438,533" sap2010:WorkflowViewState.IdRef="TryCatch_4">
+                                <TryCatch sap:VirtualizedContainerService.HintSize="438,594" sap2010:WorkflowViewState.IdRef="TryCatch_4">
                                   <sap:WorkflowViewStateService.ViewState>
                                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -645,14 +646,14 @@
                                     </Catch>
                                   </TryCatch.Catches>
                                   <TryCatch.Finally>
-                                    <Sequence DisplayName="Bloco Final" sap:VirtualizedContainerService.HintSize="242,306" sap2010:WorkflowViewState.IdRef="Sequence_24">
+                                    <Sequence DisplayName="Bloco Final" sap:VirtualizedContainerService.HintSize="376,367" sap2010:WorkflowViewState.IdRef="Sequence_24">
                                       <sap:WorkflowViewStateService.ViewState>
                                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                           <x:Boolean x:Key="IsPinned">False</x:Boolean>
                                         </scg:Dictionary>
                                       </sap:WorkflowViewStateService.ViewState>
-                                      <If sap2010:Annotation.AnnotationText="Se for maquina principal volta a por o asset a empty para indicar que já não tem maquina principal a correr" Condition="[EnviouQueue]" DisplayName="Máquina principal?" sap:VirtualizedContainerService.HintSize="200,123" sap2010:WorkflowViewState.IdRef="If_13">
+                                      <If sap2010:Annotation.AnnotationText="Se for maquina principal volta a por o asset a empty para indicar que já não tem maquina principal a correr" Condition="[EnviouQueue]" DisplayName="Máquina principal?" sap:VirtualizedContainerService.HintSize="334,123" sap2010:WorkflowViewState.IdRef="If_13">
                                         <sap:WorkflowViewStateService.ViewState>
                                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                             <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -664,40 +665,84 @@
                                           <ui:SetAsset TimeoutMS="{x:Null}" AssetName="[AssetName]" DisplayName="Set Asset" FolderPath="[Config(&quot;orchestratorFolder&quot;).ToString.Trim]" sap:VirtualizedContainerService.HintSize="284,132" sap2010:WorkflowViewState.IdRef="SetAsset_2" Value="[&quot;empty&quot;]" />
                                         </If.Then>
                                       </If>
-                                      <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Bloco Finalização" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_35" LogEntry="No" LogExit="No" UnSafe="False" WorkflowFileName="Methods\Generic\BlocoFinalizacao.xaml">
+                                      <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Bloco Finalização" sap:VirtualizedContainerService.HintSize="334,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_35" LogEntry="No" LogExit="No" UnSafe="False" WorkflowFileName="Methods\Generic\BlocoFinalizacao.xaml">
                                         <ui:InvokeWorkflowFile.Arguments>
-                                          <InArgument x:TypeArguments="x:Int32" x:Key="NumSucessos_in">[Cint(DicionarioSucessos("Sucessos").ToString.Trim)]</InArgument>
-                                          <InArgument x:TypeArguments="x:Int32" x:Key="NumForaAmbito_in">0</InArgument>
-                                          <InArgument x:TypeArguments="x:Int32" x:Key="NumInsucessos_in">[Cint(DicionarioSucessos("Insucessos").ToString.Trim)]</InArgument>
-                                          <InArgument x:TypeArguments="x:String" x:Key="DataHoraInicio_in">[Config("DataHoraInicio").ToString.Trim]</InArgument>
-                                          <InArgument x:TypeArguments="x:String" x:Key="Processo_in">[Config("Processo").ToString.Trim]</InArgument>
-                                          <InArgument x:TypeArguments="x:String" x:Key="Area_in">[Config("Area").ToString.Trim]</InArgument>
-                                          <InArgument x:TypeArguments="x:String" x:Key="Direcao_in">[Config("Direcao").ToString]</InArgument>
-                                          <InArgument x:TypeArguments="x:String" x:Key="AmbienteExecucao_in">[Config("AmbienteExecucao").ToString.Trim]</InArgument>
-                                          <InArgument x:TypeArguments="x:Int32" x:Key="NumReprocessamentos_in">[3*Cint(DicionarioSucessos("Insucessos").ToString.Trim)]</InArgument>
-                                          <InArgument x:TypeArguments="x:Boolean" x:Key="EnviarEmail_in">True</InArgument>
-                                          <InArgument x:TypeArguments="x:String" x:Key="EmailTo_in">[Config("EmailEnvioFeedback").ToString.Trim]</InArgument>
-                                          <InArgument x:TypeArguments="x:String" x:Key="EmailSubject_in">Resumo Execução</InArgument>
-                                          <InArgument x:TypeArguments="x:Int32" x:Key="NumTransacoesTotal_in">[Cint(DicionarioSucessos("Sucessos").ToString.Trim) + Cint(DicionarioSucessos("Insucessos").ToString.Trim)]</InArgument>
-                                          <InArgument x:TypeArguments="x:String" x:Key="EmailBody_in">["Robot correu com sucesso." +vbNewLine]</InArgument>
-                                          <InArgument x:TypeArguments="x:String" x:Key="Domain_in">[Config("DominioEmail").ToString.Trim]</InArgument>
-                                          <InArgument x:TypeArguments="ss:SecureString" x:Key="EmailPassword_in">[(new System.Net.NetworkCredential("", Config("PassRobot").ToString.Trim)).SecurePassword]</InArgument>
-                                          <InArgument x:TypeArguments="x:String" x:Key="EmailUser_in">[Config("UserRobot").ToString.Trim]</InArgument>
-                                          <InArgument x:TypeArguments="x:String" x:Key="EmailServer_in">[Config("ServidorEmail").ToString.Trim]</InArgument>
-                                          <InArgument x:TypeArguments="x:Int32" x:Key="TransacoesConsecutivasErro_in">0</InArgument>
-                                          <InArgument x:TypeArguments="x:Boolean" x:Key="TerminarComErro_in">False</InArgument>
-                                          <InArgument x:TypeArguments="x:Boolean" x:Key="EmailComAttachment_in">False</InArgument>
+                                          <InArgument x:TypeArguments="x:Int32" x:Key="NumSucessos_in">
+                                            <mva:VisualBasicValue x:TypeArguments="x:Int32" ExpressionText="Cint(DicionarioSucessos(&quot;Sucessos&quot;).ToString.Trim)" />
+                                          </InArgument>
+                                          <InArgument x:TypeArguments="x:Int32" x:Key="NumForaAmbito_in">
+                                            <mva:VisualBasicValue x:TypeArguments="x:Int32" ExpressionText="Cint(DicionarioSucessos(&quot;ForaAmbito&quot;).ToString.Trim)" />
+                                          </InArgument>
+                                          <InArgument x:TypeArguments="x:Int32" x:Key="NumInsucessos_in">
+                                            <mva:VisualBasicValue x:TypeArguments="x:Int32" ExpressionText="Cint(DicionarioSucessos(&quot;Insucessos&quot;).ToString.Trim)" />
+                                          </InArgument>
+                                          <InArgument x:TypeArguments="x:String" x:Key="DataHoraInicio_in">
+                                            <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="Config(&quot;DataHoraInicio&quot;).ToString.Trim" />
+                                          </InArgument>
+                                          <InArgument x:TypeArguments="x:String" x:Key="Processo_in">
+                                            <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="Config(&quot;Processo&quot;).ToString.Trim" />
+                                          </InArgument>
+                                          <InArgument x:TypeArguments="x:String" x:Key="Area_in">
+                                            <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="Config(&quot;Area&quot;).ToString.Trim" />
+                                          </InArgument>
+                                          <InArgument x:TypeArguments="x:String" x:Key="Direcao_in">
+                                            <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="Config(&quot;Direcao&quot;).ToString" />
+                                          </InArgument>
+                                          <InArgument x:TypeArguments="x:String" x:Key="AmbienteExecucao_in">
+                                            <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="Config(&quot;AmbienteExecucao&quot;).ToString.Trim" />
+                                          </InArgument>
+                                          <InArgument x:TypeArguments="x:Int32" x:Key="NumReprocessamentos_in">
+                                            <mva:VisualBasicValue x:TypeArguments="x:Int32" ExpressionText="3*Cint(DicionarioSucessos(&quot;Insucessos&quot;).ToString.Trim)" />
+                                          </InArgument>
+                                          <InArgument x:TypeArguments="x:Boolean" x:Key="EnviarEmail_in">
+                                            <Literal x:TypeArguments="x:Boolean" Value="True" />
+                                          </InArgument>
+                                          <InArgument x:TypeArguments="x:String" x:Key="EmailTo_in">
+                                            <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="Config(&quot;EmailEnvioFeedback&quot;).ToString.Trim" />
+                                          </InArgument>
+                                          <InArgument x:TypeArguments="x:String" x:Key="EmailSubject_in">
+                                            <Literal x:TypeArguments="x:String">Resumo Execução</Literal>
+                                          </InArgument>
+                                          <InArgument x:TypeArguments="x:Int32" x:Key="NumTransacoesTotal_in">
+                                            <mva:VisualBasicValue x:TypeArguments="x:Int32" ExpressionText="Cint(DicionarioSucessos(&quot;Sucessos&quot;).ToString.Trim) + Cint(DicionarioSucessos(&quot;Insucessos&quot;).ToString.Trim)" />
+                                          </InArgument>
+                                          <InArgument x:TypeArguments="x:String" x:Key="EmailBody_in">
+                                            <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="&quot;Robot correu com sucesso.&quot; +vbNewLine" />
+                                          </InArgument>
+                                          <InArgument x:TypeArguments="x:String" x:Key="Domain_in">
+                                            <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="Config(&quot;DominioEmail&quot;).ToString.Trim" />
+                                          </InArgument>
+                                          <InArgument x:TypeArguments="ss:SecureString" x:Key="EmailPassword_in">
+                                            <mva:VisualBasicValue x:TypeArguments="ss:SecureString" ExpressionText="(new System.Net.NetworkCredential(&quot;&quot;, Config(&quot;PassRobot&quot;).ToString.Trim)).SecurePassword" />
+                                          </InArgument>
+                                          <InArgument x:TypeArguments="x:String" x:Key="EmailUser_in">
+                                            <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="Config(&quot;UserRobot&quot;).ToString.Trim" />
+                                          </InArgument>
+                                          <InArgument x:TypeArguments="x:String" x:Key="EmailServer_in">
+                                            <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="Config(&quot;ServidorEmail&quot;).ToString.Trim" />
+                                          </InArgument>
+                                          <InArgument x:TypeArguments="x:Int32" x:Key="TransacoesConsecutivasErro_in">
+                                            <Literal x:TypeArguments="x:Int32" />
+                                          </InArgument>
+                                          <InArgument x:TypeArguments="x:Boolean" x:Key="TerminarComErro_in">
+                                            <Literal x:TypeArguments="x:Boolean" />
+                                          </InArgument>
+                                          <InArgument x:TypeArguments="x:Boolean" x:Key="EmailComAttachment_in">
+                                            <Literal x:TypeArguments="x:Boolean" />
+                                          </InArgument>
                                           <InArgument x:TypeArguments="x:String" x:Key="EmailAttachmentcaminho_in">
                                             <Literal x:TypeArguments="x:String" Value="" />
                                           </InArgument>
                                           <InArgument x:TypeArguments="x:String" x:Key="EmailAttachmentcaminho2_in">
                                             <Literal x:TypeArguments="x:String" Value="" />
                                           </InArgument>
-                                          <InArgument x:TypeArguments="x:Boolean" x:Key="EmailComAttachment2_in">False</InArgument>
+                                          <InArgument x:TypeArguments="x:Boolean" x:Key="EmailComAttachment2_in">
+                                            <Literal x:TypeArguments="x:Boolean" />
+                                          </InArgument>
                                         </ui:InvokeWorkflowFile.Arguments>
                                         <sap:WorkflowViewStateService.ViewState>
                                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                             <x:Boolean x:Key="IsPinned">False</x:Boolean>
                                           </scg:Dictionary>
                                         </sap:WorkflowViewStateService.ViewState>
